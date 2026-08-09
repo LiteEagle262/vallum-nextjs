@@ -1,0 +1,81 @@
+{
+  "name": "@vallum/nextjs",
+  "version": "0.1.0",
+  "description": "Next.js client and admission route integrations for Vallum",
+  "license": "Apache-2.0",
+  "type": "module",
+  "sideEffects": ["./dist/server.js"],
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "main": "./dist/client.js",
+  "module": "./dist/client.js",
+  "types": "./dist/client.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/client.d.ts",
+      "import": "./dist/client.js",
+      "default": "./dist/client.js"
+    },
+    "./client": {
+      "types": "./dist/client.d.ts",
+      "import": "./dist/client.js",
+      "default": "./dist/client.js"
+    },
+    "./server": {
+      "types": "./dist/server.d.ts",
+      "import": "./dist/server.js",
+      "default": "./dist/server.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "prepack": "npm run build && node ../../scripts/prepare-package-license.mjs .",
+    "postpack": "node ../../scripts/cleanup-package-license.mjs ."
+  },
+  "dependencies": {
+    "@vallum/admission": "^0.1.0",
+    "@vallum/react": "^0.1.0",
+    "server-only": "^0.0.1"
+  },
+  "peerDependencies": {
+    "next": ">=13.4.0",
+    "react": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "next": "^16.0.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "typescript": "^5.9.0",
+    "vitest": "^4.1.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vallum-proxy/vallum.git",
+    "directory": "packages/vallum-nextjs"
+  },
+  "homepage": "https://github.com/vallum-proxy/vallum#readme",
+  "bugs": {
+    "url": "https://github.com/vallum-proxy/vallum/issues"
+  },
+  "keywords": [
+    "vallum",
+    "nextjs",
+    "react",
+    "admission",
+    "security",
+    "browser-sdk"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}
