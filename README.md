@@ -1,14 +1,14 @@
-# `@vallum/nextjs`
+# `@liteeagle226/nextjs`
 
 Next.js integration for Vallum's browser SDK and admission route. The default export path and the
-explicit `@vallum/nextjs/client` path both resolve to a dedicated `"use client"`
+explicit `@liteeagle226/nextjs/client` path both resolve to a dedicated `"use client"`
 boundary. They do not import admission handlers, secrets, or other Node-only
 server code.
 
 ## Install
 
 ```sh
-npm install @vallum/client @vallum/react @vallum/nextjs
+npm install @liteeagle226/client @liteeagle226/react @liteeagle226/nextjs
 ```
 
 Next.js 13.4+ and React 18+ are supported.
@@ -20,7 +20,7 @@ can render this exported Client Component directly:
 
 ```tsx
 // app/layout.tsx — Server Component
-import { VallumProvider } from "@vallum/nextjs/client";
+import { VallumProvider } from "@liteeagle226/nextjs/client";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -46,7 +46,7 @@ Use the hooks from a Client Component:
 ```tsx
 "use client";
 
-import { useVallum } from "@vallum/nextjs/client";
+import { useVallum } from "@liteeagle226/nextjs/client";
 
 export function SecurePanel() {
   const { client, status, error, retry } = useVallum();
@@ -70,7 +70,7 @@ Wrap the application in `pages/_app.tsx`:
 
 ```tsx
 import type { AppProps } from "next/app";
-import { VallumProvider } from "@vallum/nextjs/client";
+import { VallumProvider } from "@liteeagle226/nextjs/client";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -81,7 +81,7 @@ export default function App({ Component, pageProps }: AppProps) {
 }
 ```
 
-See `@vallum/react` for lifecycle, retry, protected fetch, render-only value,
+See `@liteeagle226/react` for lifecycle, retry, protected fetch, render-only value,
 accessibility, and security-boundary details.
 
 ## Admission Route Handler
@@ -96,7 +96,7 @@ issuance budget from shared storage.
 import {
   admissionConfiguration,
   createVallumRouteHandler,
-} from "@vallum/nextjs/server";
+} from "@liteeagle226/nextjs/server";
 import { auth } from "@/lib/auth";
 import { admissionBudgets } from "@/lib/rate-limit";
 
@@ -117,7 +117,7 @@ export const POST = createVallumRouteHandler({
 });
 ```
 
-`@vallum/nextjs/server` imports Next.js's `server-only` guard, so accidentally
+`@liteeagle226/nextjs/server` imports Next.js's `server-only` guard, so accidentally
 pulling it into a Client Component fails the build. It requires the Node.js
 runtime because Ed25519 signing keys must never enter an edge or browser
-bundle. See `@vallum/admission` for configuration and security requirements.
+bundle. See `@liteeagle226/admission` for configuration and security requirements.

@@ -5,12 +5,12 @@ async function source(name: "client" | "server") {
   return readFile(new URL(`./${name}.ts`, import.meta.url), "utf8");
 }
 
-describe("@vallum/nextjs entry boundaries", () => {
+describe("@liteeagle226/nextjs entry boundaries", () => {
   it("keeps the browser entry behind a client directive and free of server dependencies", async () => {
     const client = await source("client");
 
     expect(client.trimStart().startsWith('"use client";')).toBe(true);
-    expect(client).not.toContain("@vallum/admission");
+    expect(client).not.toContain("@liteeagle226/admission");
     expect(client).not.toContain('import "server-only"');
     expect(client).not.toContain('from "./server');
   });
@@ -18,7 +18,7 @@ describe("@vallum/nextjs entry boundaries", () => {
   it("guards the admission entry as server-only", async () => {
     const server = await source("server");
     expect(server.trimStart().startsWith('import "server-only";')).toBe(true);
-    expect(server).toContain('from "@vallum/admission"');
+    expect(server).toContain('from "@liteeagle226/admission"');
   });
 
   it("publishes separate client and server subpaths", async () => {

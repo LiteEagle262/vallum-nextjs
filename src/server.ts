@@ -7,7 +7,7 @@ export {
   createVallumAdmissionHandler as createVallumRouteHandler,
   issueVallumAdmission,
   parseVallumAdmissionRequest,
-} from "@vallum/admission";
+} from "@liteeagle226/admission";
 
 export type {
   VallumAdmissionConfiguration,
@@ -16,4 +16,4 @@ export type {
   VallumAdmissionPrincipal,
   VallumAdmissionRateLimit,
   VallumAdmissionRequest,
-} from "@vallum/admission";
+} from "@liteeagle226/admission";

@@ -10,7 +10,7 @@ export {
   useVallum,
   useVallumClient,
   useVallumFetch,
-} from "@vallum/react";
+} from "@liteeagle226/react";
 
 export type {
   MountOptions,
@@ -23,4 +23,4 @@ export type {
   VallumRenderProps,
   VallumRenderStatus,
   VallumStatus,
-} from "@vallum/react";
+} from "@liteeagle226/react";
