@@ -1,6 +1,6 @@
 {
   "name": "@liteeagle226/nextjs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Next.js client and admission route integrations for Vallum",
   "license": "Apache-2.0",
   "type": "module",
@@ -37,8 +37,8 @@
     "postpack": "node ../../scripts/cleanup-package-license.mjs ."
   },
   "dependencies": {
-    "@liteeagle226/admission": "^0.1.0",
-    "@liteeagle226/react": "^0.1.0",
+    "@liteeagle226/admission": "^0.1.1",
+    "@liteeagle226/react": "^0.1.1",
     "server-only": "^0.0.1"
   },
   "peerDependencies": {

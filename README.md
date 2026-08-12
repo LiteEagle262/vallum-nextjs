@@ -8,10 +8,12 @@ server code.
 ## Install
 
 ```sh
-npm install @liteeagle226/client @liteeagle226/react @liteeagle226/nextjs
+npm install @liteeagle226/client @liteeagle226/react @liteeagle226/admission @liteeagle226/nextjs next react
 ```
 
-Next.js 13.4+ and React 18+ are supported.
+The Next.js package declares the three Vallum support packages as runtime
+dependencies; they are listed explicitly so the client and server boundaries
+are easy to audit. Next.js 13.4+ and React 18+ are supported.
 
 ## App Router
 
